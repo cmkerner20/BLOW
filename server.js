@@ -1,6 +1,9 @@
 var sqlite3 = require('sqlite3').verbose();
 var db = new sqlite3.Database('garage_demo.db');
-var app      = express();
+var express  = require('express');
+var bodyParser   = require('body-parser');
+
+var app  = express();
 
 app.use(express.static("./public")); // sets standard files things. i.e /public/imgs will be /imgs
 
