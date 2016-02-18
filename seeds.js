@@ -16,7 +16,6 @@ db.run("INSERT INTO cars (garage_id, make, model, year) VALUES (?,?,?,?), (?,?,?
   1, 'Citroen', 'SM', 1970,
   1, 'Mazda', 'Cosmo', 1970,
   1, 'Jaguar', 'E-Type', 1963,
-  3, 'Toyota', 'Camry', 2013,
   function(err) {
     if (err) { throw err;}
   }

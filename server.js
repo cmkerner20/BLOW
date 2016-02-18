@@ -6,6 +6,7 @@ var bodyParser   = require('body-parser');
 var app  = express();
 
 app.use(express.static("./public")); // sets standard files things. i.e /public/imgs will be /imgs
+app.set('view engine', 'ejs'); // set up ejs for templating
 
 
 db.run("PRAGMA foreign_keys = ON;"); //enables foreign keys in sqlite3
