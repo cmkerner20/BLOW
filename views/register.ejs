@@ -1,0 +1,36 @@
+<% include header.ejs %>
+
+<html>
+<div style="padding-top: 150px" class="container">
+
+<div class="col-sm-6 col-sm-offset-3">
+
+    <h1><span class="fa fa-sign-in"></span> Register</h1>
+
+
+
+    <!-- LOGIN FORM -->
+    <form action="/register" method="post">
+        <div class="form-group">
+            <label>Username</label>
+            <input type="text" class="form-control" name="username">
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" name="password">
+        </div>
+
+
+
+        <button type="submit" class="btn btn-info btn-block">Register</button>
+    </form>
+    <hr>
+    <p>Already have an account? <a href="/login">Login</a>.</p>
+
+
+
+</div>
+
+</div>
+</body>
+</html>
