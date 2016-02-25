@@ -1,5 +1,5 @@
 var sqlite3 = require('sqlite3').verbose();
-var db = new sqlite3.Database('garage_demo.db');
+var db = new sqlite3.Database('Congress-Stalker.db');
 var express  = require('express');
 var bodyParser   = require('body-parser');
 
@@ -11,7 +11,7 @@ app.set('view engine', 'ejs'); // set up ejs for templating
 
 db.run("PRAGMA foreign_keys = ON;"); //enables foreign keys in sqlite3
 
-db.all('SELECT * FROM garages', function(err, rows){
+db.all('SELECT * FROM users', function(err, rows){
   if(err){
     console.log(err);
   } else {
@@ -19,6 +19,8 @@ db.all('SELECT * FROM garages', function(err, rows){
     console.log(rows); 
   }
 });
+
+/*
 db.all('SELECT * FROM cars', function(err, rows){
   if(err){
     console.log(err);
@@ -48,6 +50,7 @@ db.all('SELECT * FROM cars', function(err, rows){
     console.log(rows); 
   }
 });
+*/
 
 require('./routes/routes.js')(app);//(app); // load our routes and pass in our app and fully configured passport
 

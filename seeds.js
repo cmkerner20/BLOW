@@ -1,7 +1,23 @@
 var sqlite3 = require('sqlite3').verbose();
-var db = new sqlite3.Database('garage_demo.db');
+var db = new sqlite3.Database('Congress-Stalker.db');
 
 db.run("PRAGMA foreign_keys = ON;"); //enables foreign keys in sqlite3
+
+db.run("INSERT INTO users (Username, Password) VALUES (?,?), (?,?)",
+  'Matt', 'swag',
+  'Catherine', 'poopy',
+  function(err) {
+    if (err) { throw err;}
+  }
+);
+
+/*db.run("INSERT INTO garages (owner) VALUES (?), (?)",
+  'Mrs. Smith',
+  'Mr. Wilson',
+  function(err) {
+    if (err) { throw err;}
+  }
+);
 
 db.run("INSERT INTO garages (owner) VALUES (?), (?)",
   'Mrs. Smith',
@@ -20,3 +36,4 @@ db.run("INSERT INTO cars (garage_id, make, model, year) VALUES (?,?,?,?), (?,?,?
     if (err) { throw err;}
   }
 );
+*/
