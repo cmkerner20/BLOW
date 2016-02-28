@@ -2,8 +2,9 @@ var sqlite3 = require('sqlite3').verbose();
 var db = new sqlite3.Database('cs.db');
 var express  = require('express');
 var bodyParser   = require('body-parser');
-
 var app  = express();
+app.use(bodyParser());
+
 var zipInfo;
 var data;
 
@@ -58,8 +59,6 @@ db.all('SELECT * FROM user_legislators', function(err, rows){
   }
 });
 
-
-  
 
 require('./routes/routes.js')(app);//(app); // load our routes and pass in our app and fully configured passport
 

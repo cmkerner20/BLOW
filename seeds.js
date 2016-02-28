@@ -5,7 +5,7 @@ db.run("PRAGMA foreign_keys = ON;"); //enables foreign keys in sqlite3
 
 
 db.run("INSERT INTO users (username, password) VALUES (?, ?)",
-  'Mrs. Smith', 'pword',
+  'Matt', 'swag',
   function(err) {
     if (err) { throw err;}
   }
