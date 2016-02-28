@@ -11,7 +11,7 @@ app.get('/login', function(req, res) {
     res.render('login.ejs');
 });
 
-app.get('https://congress.api.sunlightfoundation.com/legislators/locate?zip=zip?apikey=[25d5c2f6794144a89172fb92c6ad847e]', function(data, status){
+app.get('https://congress.api.sunlightfoundation.com/legislators/locate?zip=zip?apikey=25d5c2f6794144a89172fb92c6ad847e', function(data, status){
             console.log("called");
             zipInfo = data;
             console.log(data);
