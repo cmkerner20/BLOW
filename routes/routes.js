@@ -11,7 +11,7 @@ app.get('/login', function(req, res) {
     res.render('login.ejs');
 });
 
-app.get('https://congress.api.sunlightfoundation.com/legislators/locate?zip=zip?apikey=25d5c2f6794144a89172fb92c6ad847e', function(data, status){
+app.get('https://congress.api.sunlightfoundation.com/legislators/locate?zip=zip?apikey=7e9b73b47a324c499f9ac9c13bb9e624', function(data, status){
             console.log("called");
             zipInfo = data;
             console.log(data);
@@ -40,9 +40,10 @@ db.all('SELECT * FROM users', function(err, rows){
       }
      else if(rows[i].username==name && rows[i].password!=pass){
         console.log("Password is incorrect");
+        //alert("Password is incorrect");
       }
     else{
-      console.log("SWAG!!");
+      console.log("There is no user account under this name. Please register.");
     }
   }
   }

@@ -5,9 +5,9 @@
   console.log("js");
 
   $.ajax({
-            url: 'https://congress.api.sunlightfoundation.com/legislators/locate?zip='+ zip + '?apikey=25d5c2f6794144a89172fb92c6ad847e',
+            url: 'https://congress.api.sunlightfoundation.com/legislators/locate?zip='+ zip + '?apikey=7e9b73b47a324c499f9ac9c13bb9e624',
             type: 'GET',
-           // dataType: 'application/json',
+            dataType: 'application/json',
             data: congressData,
           success: function(result) {
             console.log("congressData");

@@ -1,0 +1,37 @@
+<% include header.ejs %>
+
+<!-- views/home.ejs -->
+<!doctype html>
+<html>
+
+<body>
+<div style="padding-top: 150px" class="container">
+
+<div class="col-sm-6 col-sm-offset-3">
+
+    <h1><span class="fa fa-sign-in"></span> Search</h1>
+
+   
+
+    <!-- Search FORM -->
+    <form action="/home" method="post">
+        <div class="form-group">
+            <label>Zipcode</label>
+            <input type="text" class="form-control" name="zipcode">
+        </div>
+        <div class="form-group">
+           
+
+
+        <button type="search" class="btn btn-info btn-block">Search</button>
+    </form>
+
+    <hr>
+
+    <p>Need an account? <a href="/register">Register</a>.</p>
+
+</div>
+
+</div>
+</body>
+</html>
