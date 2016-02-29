@@ -4,6 +4,7 @@
     $("#legislators-form").delay(100).fadeIn(100);
     $("#bills-form").fadeOut(100);
     $('#bills-form-link').removeClass('active');
+    $("#legislators-form").append("legislator");
     $(this).addClass('active');
     e.preventDefault();
   });
@@ -11,6 +12,7 @@
     $("#bills-form").delay(100).fadeIn(100);
     $("#legislators-form").fadeOut(100);
     $('#legislators-form-link').removeClass('active');
+    $("#bills-form").append("bills");
     $(this).addClass('active');
     e.preventDefault();
   });
