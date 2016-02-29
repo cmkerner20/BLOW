@@ -89,9 +89,20 @@ app.get('/home', function(req, res) {
     res.render('home.ejs');
 });
 
+app.post('/home', function(req, res) {
+    // render the page and pass in any flash data if it exists
+    res.redirect('/list');
+});
+
 app.get('/user', function(req, res) {
     // render the page and pass in any flash data if it exists
     res.render('user.ejs');
+});
+
+
+app.get('/list', function(req, res) {
+    // render the page and pass in any flash data if it exists
+    res.render('list.ejs');
 });
 
   
