@@ -7,6 +7,7 @@ app.use(bodyParser());
 
 var zipInfo;
 var data;
+var zipcode;
 
 app.use(express.static("./public")); // sets standard files things. i.e /public/imgs will be /imgs
 app.set('view engine', 'ejs'); // set up ejs for templating
