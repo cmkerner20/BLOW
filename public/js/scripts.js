@@ -3,26 +3,24 @@
   var check = false;
   $(function() {
 
-    $('#legislators-form-link').click(function(e) {
-    $("#legislators-form").delay(100).fadeIn(100);
-    $("#bills-form").fadeOut(100);
-    $('#bills-form-link').removeClass('active');
-    $("#legislators-form").append(congressData);
-    $(this).addClass('active');
-    e.preventDefault();
-  });
-  $('#bills-form-link').click(function(e) {
-    $("#bills-form").delay(100).fadeIn(100);
-    $("#legislators-form").fadeOut(100);
-    $('#legislators-form-link').removeClass('active');
-    $("#bills-form").append(congressData);
-    $(this).addClass('active');
-    e.preventDefault();
-  });
+  //  $('#legislators-form-link').click(function(e) {
+  //  $("#legislators-form").delay(100).fadeIn(100);
+  //  $("#bills-form").fadeOut(100);
+  //  $('#bills-form-link').removeClass('active');
+  //  $(this).addClass('active');
+  //  e.preventDefault();
+  //});
+ // $('#bills-form-link').click(function(e) {
+ //   $("#bills-form").delay(100).fadeIn(100);
+ //   $("#legislators-form").fadeOut(100);
+ //   $('#legislators-form-link').removeClass('active');
+ //  // $("#bills-form").append(congressData);
+ //   $(this).addClass('active');
+ // });
 });
 
   var xhr = new XMLHttpRequest(); 
-
+var swag;
   console.log("js");
   if(check===false){
     console.log("hide");
@@ -40,11 +38,23 @@
             type: 'GET',
           complete: function(data) {
             console.log(data);
-            congressData = data.responseText;
+            congressData = JSON.parse(data.responseText);
             console.log("got through");
             console.log(congressData);
+            swag = '<div class="container"><table style="color: black" class="table"><thead><tr><th>Name</th><th>Party</th><th>Twitter</th></tr></thead>';
+    for(var i= 0; i<congressData.results.length; i++){
+      if(congressData.results[i].party === 'D'){
+      swag+='<tbody><tr style="color: black" class="info"><td><a href=/bills">'+ congressData.results[i].first_name + ' ' + congressData.results[i].last_name + '</a></td><td>Democrat</td><td>'+ congressData.results[i].twitter_id + '</td></tr>';
+    }
+    else if(congressData.results[i].party === 'R'){
+        swag+='<tbody><tr style="color: black" class="danger"><td><a href="/bills">'+ congressData.results[i].first_name + ' ' + congressData.results[i].last_name + '</a></td><td>Republican</td><td>'+ congressData.results[i].twitter_id + '</td></tr>';
 
-            
+    }
+    }
+     swag+='</tbody></table></div>';
+    
+    $("#legislators-form").append(swag);
+          //  $("#legislators-form").append("NAME: " congressData.results[0].first_name + " " + congressData.results[0].last_name + " " + congressData.results[0].party + " " + congressData.results[0].twitter_id);
 
 
         }
