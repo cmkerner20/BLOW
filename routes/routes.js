@@ -102,9 +102,29 @@ app.get('/user', function(req, res) {
 
 app.get('/list', function(req, res) {
     // render the page and pass in any flash data if it exists
-    res.render('list.ejs');
+
+db.all('SELECT * FROM user_legislators', function(err, rows1){
+  if(err){
+    console.log(err);
+  } else {
+    console.log('********UL TABLE**********');
+    console.log(rows1); 
+
+    db.all('SELECT * FROM legislators', function(err, rows2){
+  if(err){
+    console.log(err);
+  } else {
+    console.log('********L TABLE**********');
+    console.log(rows2); 
+
+    res.render('list.ejs', {info1:rows1, info2:rows2});  
+
+  }
+});
+  }
 });
 
-  
+});
+
 
 }

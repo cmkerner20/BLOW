@@ -29,9 +29,12 @@
             data: congressData,
           success: function(result) {
             alert("Quiz Updated");
+          //  console.log(result);
 
         }
         });
+
+
 
     
 });
