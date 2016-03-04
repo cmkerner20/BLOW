@@ -2,8 +2,12 @@ var sqlite3 = require('sqlite3').verbose();
 var db = new sqlite3.Database('cs.db');
 var express  = require('express');
 var bodyParser   = require('body-parser');
+var cookieParser = require('cookie-parser')
+
 var app  = express();
 app.use(bodyParser());
+app.use(cookieParser());
+
 
 var zipInfo;
 var data;

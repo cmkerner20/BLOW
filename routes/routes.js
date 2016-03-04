@@ -100,13 +100,6 @@ app.get('/home', function(req, res) {
 
 app.get('/user', function(req, res) {
     // render the page and pass in any flash data if it exists
-    res.render('user.ejs');
-});
-
-
-app.get('/list', function(req, res) {
-    // render the page and pass in any flash data if it exists
-
 db.all('SELECT * FROM user_legislators', function(err, rows1){
   if(err){
     console.log(err);
@@ -120,21 +113,32 @@ db.all('SELECT * FROM user_legislators', function(err, rows1){
   } else {
     console.log('********L TABLE**********');
     console.log(rows2); 
+db.all('SELECT * FROM bills', function(err, rows3){
+  if(err){
+    console.log(err);
+  } else {
+    console.log('********L TABLE**********');
+    console.log(rows3); 
 
-    res.render('list.ejs', {info1:rows1, info2:rows2});  
+db.all('SELECT * FROM user_bills', function(err, rows4){
+  if(err){
+    console.log(err);
+  } else {
+    console.log('********L TABLE**********');
+    console.log(rows4); 
+
+    res.render('user.ejs', {info1:rows1, info2:rows2, info3:rows3, info4:rows4});  
+
+  }
+  });
 
   }
 });
   }
 });
+  }
+});
 
 });
-// app.get('/list', function(req, res) {
-//     // render the page and pass in any flash data if it exists
-//     //res.send(zipcode);
-//     res.render('list.ejs');
-
-// });
-
 
 }

@@ -12,29 +12,33 @@ db.run("INSERT INTO users (username, password) VALUES (?, ?)",
 );
 
 
-db.run("INSERT INTO bills (id, name) VALUES (?, ?)",
-  1, 'thebill',
+db.run("INSERT INTO bills (id, name, legislator) VALUES (?, ?, ?), (?,?,?)",
+  1, 'thebill', 'ANANTH',
+  2, 'save us', 'Matt',  
   function(err) {
     if (err) { throw err;}
   }
 );
 
-db.run("INSERT INTO legislators (id, name, twitter) VALUES (?, ?, ?)",
+db.run("INSERT INTO legislators (id, name, twitter) VALUES (?,?,?), (?,?,?)",
   1, 'Leg Smith', 'twit',
+  2, 'JEREMY', 'swaggermonkey',
   function(err) {
     if (err) { throw err;}
   }
 );
 
-db.run("INSERT INTO user_bills (id_user, id_bill) VALUES (?, ?)",
+db.run("INSERT INTO user_bills (id_user, id_bill) VALUES (?, ?), (?, ?)",
   1, 1,
+  1, 2,
   function(err) {
     if (err) { throw err;}
   }
 );
 
-db.run("INSERT INTO user_legislators (id_user, id_legislator) VALUES (?, ?)",
+db.run("INSERT INTO user_legislators (id_user, id_legislator) VALUES (?, ?), (?, ?)",
   1, 1,
+  1, 2,
   function(err) {
     if (err) { throw err;}
   }
