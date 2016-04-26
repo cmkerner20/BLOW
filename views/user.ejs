@@ -9,10 +9,7 @@
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-xs-6">
-                                <a href="#" class="active" id="L-form-link">Legislator</a>
-                            </div>
-                            <div class="col-xs-6">
-                                <a href="#" id="B-form-link">Bills</a>
+                                <a href="#" class="active" id="L-form-link">Turbines</a>
                             </div>
                         </div>
                         <hr>
@@ -22,40 +19,8 @@
                         <div class="row">
                             <div class="col-lg-12">
 
-                                <form id="L-form" action="/deleteLegislator" method="post" role="form" style="display: block;">
+                                <form id="legislator-form" action="/addLegislator" method="post" role="form" style="display: block;">
                                     <div class="form-group">
-                                        <div class="legTable"><table width="300" style="color: black" class="table"><thead><tr><th>Name</th><th>twitter</th><th>Delete</th></tr></thead>
-                                        <% var userLeg; %>
-                                        <% var nameLeg; %>
-                                    <% for (var g = 0; g<info1.length;g++) { %>
-                        <% if(info1[g].id_user == 1) { %>
-                          <%  userLeg= info1[g].id_legislator; %>
-                          <% for (var h = 0; h<info2.length;h++) { %>
-                                <% if(info2[h].id == userLeg) { %>
-                                <% nameLeg= info2[h].name %>
-                                <tbody><tr style="color: black" class="info"><td><%= nameLeg%></td><td><%= info2[h].twitter%></td><td><button>-</button></td></tr></tbody>
-                          <% } } }%>
-                          <% }%>
-                          </table></div>
-                                    </div>
-                                   
-                                </form>
-
-                                <form id="B-form" action="/deleteBill" method="post" role="form" style="display: none;">
-                                    <div class="form-group">
-                                    <div class="legTable"><table width="300" style="color: black" class="table"><thead><tr><th>Name</th><th>legislator</th><th>Delete</th></tr></thead>   
-                                        <% var userBill; %>
-                                        <% var nameBill; %>
-                                <% for (var i = 0; i<info4.length;i++) { %>
-                                    <% if(info4[i].id_user == 1) { %>
-                                    <%  userBill= info4[i].id_bill; %>
-                                        <% for (var j = 0; j<info3.length;j++) { %>
-                                            <% if(info3[j].id == userBill) { %>
-                                            <% nameBill= info3[j].name %>
-                                            <tbody><tr style="color: black" class="info"><td><%= nameBill%></td><td><%= info3[j].legislator%></td><td><button>-</button></td></tr></tbody>
-                                    <% } } }%>
-                                <% }%>
-                                </table></div>
                                     </div>
                                 </form>
                             </div>

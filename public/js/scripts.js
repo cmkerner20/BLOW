@@ -1,12 +1,11 @@
 
 
   var congressData;
-  var bills;
-  var person;
-  var cosponsors;
+  var turbine;
+  var addturbine;
   var zip;
   var check = false;
-  var legData= [];
+  var turbData= [];
  $(function() {
 
     $('#L-form-link').click(function(e) {
@@ -24,7 +23,6 @@
     e.preventDefault();
   });
 });
-$('#bills').hide();
   var xhr = new XMLHttpRequest(); 
 var swag;
   console.log("js");
@@ -40,68 +38,51 @@ var swag;
   $('#list').show();
    console.log(zip);
        $.ajax({
-            url: 'https://congress.api.sunlightfoundation.com/legislators/locate?zip='+ zip+ '&apikey=7e9b73b47a324c499f9ac9c13bb9e624',
+            url: '/turbines',
             type: 'GET',
           complete: function(data) {
             console.log(data);
-            congressData = JSON.parse(data.responseText);
+            fullData = JSON.parse(data.responseText);
             console.log("got through");
-            console.log(congressData);
-            swag = '<div id = "chart" class="swag"><table width="300" style="color: black" class="table"><thead><tr><th>Name</th><th>Party</th><th>Twitter</th><th>Add</th></tr></thead>';
-    for(var i= 0; i<congressData.results.length; i++){
-      if(congressData.results[i].party === 'D'){
-      swag+='<tbody><tr id= "'+i +'"style="color: black" class="info"><td class = "legislator"><a href="#">'+ congressData.results[i].first_name + ' ' + congressData.results[i].last_name + '</a></td><td>Democrat</td><td>'+ congressData.results[i].twitter_id + '</td><td><button>+</button></td></tr>';
+            console.log(fullData);
+            swag = '<div id = "chart" class="swag"><table width="300" style="color: black" class="table"><thead><tr><th>Name</th><th>Status</th></tr></thead>';
+    for(var i= 0; i<fullData.results.length; i++){
+      if(fullData[i].status === 'active'){
+      swag+='<tbody><tr style="color: black" class="success"><td id= "'+i +'" class = "legislator">'+ fullData.title + ' ' + fullData.results[i].last_name + '</td><button class= "add" id="'+congressData.results[i].bioguide_id+'"">+</button></td></tr>';
     }
-    else if(congressData.results[i].party === 'R'){
-        swag+='<tbody><tr id="'+i +'"style="color: black" class="danger"><td class = "lesiglator"><a href="#">'+ congressData.results[i].first_name + ' ' + congressData.results[i].last_name + '</a></td><td>Republican</td><td>'+ congressData.results[i].twitter_id + '</td><button>+</button></tr>';
+    else if(fullData[i].status === 'inactive'){
+        swag+='<tbody><tr style="color: black" class="danger"><td id="'+i +'" class = "lesiglator">' + fullData.title + ' ' + fullData.results[i].last_name + '</td><td><button class= "add" id="'+congressData.results[i].bioguide_id+'">+</button></td></tr>';
 
     }
-    legData.push(congressData.results[i]);
+    turbData.push(congressData.results[i]);
 
     }
      swag+='</tbody></table></div>';
-     console.log(legData);
+     console.log(turbData);
     
-     $("#legislators-form").append(swag); //write table
+     $("#turbine-form").append(swag); //write table
 
-     $(".table").on("click", "tr", function() {   //to indiviual "page"
+     $(".danger, .info").on("click", "td", function() {   //to indiviual "page"
      $('#list').hide();
      $('#bills').show();
-     person = $(this).attr("id");
-     $("#topHeader").text(legData[person].first_name+ " " + legData[person].last_name);
-     findBills();
+     turbine = $(this).attr("id");
+     $("#topHeader").text(turbData[turbine].title+ " " + turbData[turbine].description);
      // var chosen = legData[$(this).attr('id')];
      // console.log(chosen);
-
+     
 });
+    $(".add").on("click", function() { 
+   addturbine = $(this).attr("id");
+   console.log(addturbine);
+        });
           //  $("#legislators-form").append("NAME: " congressData.results[0].first_name + " " + congressData.results[0].last_name + " " + congressData.results[0].party + " " + congressData.results[0].twitter_id);
 
-
-        }
-        });   
+}
 });
 
-function findBills(){
-  $.ajax({
-            url: 'https://congress.api.sunlightfoundation.com/bills?sponsor_id=' + legData[person].bioguide_id + '&fields=official_title,bill_id&apikey=7e9b73b47a324c499f9ac9c13bb9e624',
-            type: 'GET',
-          complete: function(data) {
-            console.log(data);
-            bills = JSON.parse(data.responseText);
-            console.log(" bills got through");
-            console.log(bills);
-            showBills();
-          }
-            });
-}
+ });
 
-function showBills(){
-  var display = "";
-  for(var b = 0; b<bills.results.length; b++){
-   display += "<p>";
-   display+= bills.results[b].official_title;
-   display+= "<p>";
-  }
-  $("#display").append(display);
-}
+
+
+
 

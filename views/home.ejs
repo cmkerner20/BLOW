@@ -11,24 +11,25 @@
 
 <div class="col-sm-6 col-sm-offset-3">
 
-    <h1><span class="fa fa-sign-in"></span> Search</h1>
+    <h1><span class="fa fa-sign-in"></span>Manage Turbines</h1>
 
    
 
     <!-- Search FORM -->
 <div id= 'home'>
         <div class="form-group">
-            <label>Zipcode</label>
+            <p>Add a Turbine</p>
+            <label>Name</label>
             <input type="text" class="form-control" name="zipcode" id="searchterm">
         </div>
         <div class="form-group">
            
 
-        <button id  = "search9" type="searcher" class="btn btn-info btn-block">Search</button>
+        <button id  = "search9" type="searcher" class="btn btn-info btn-block">Add</button>
    
     <hr>
 
-    <p>Click here for your Bills and Legislators <a href="/user">User Page</a>.</p>
+    <p><a href="/user">Your Turbines</a></p>
     
 </div>
 
@@ -39,7 +40,7 @@
             <div class="col-md-6 col-md-offset-3">
                 <div class="panel panel-login">
                     <div class="panel-heading">                    
-                                <h2>Legislators</h2>
+                                <h2>Turbines</h2>
                         <hr>
                     </div>
 
@@ -47,7 +48,7 @@
                         <div class="row">
                             <div class="col-lg-12">
 
-                                <form id="legislators-form" action="/addLegislator" method="post" role="form" style="display: block;">
+                                <form id="turbine-form" action="/addturbine" method="post" role="form" style="display: block;">
                                     <div class="form-group">
                                     </div>
                                 </form>
@@ -61,31 +62,7 @@
 
     </div>
 </div>
- <div id= 'bills'>
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                <div class="panel panel-login">
-                    <div id = "topHeader" class="panel-heading">                    
-                                <h2>Legislators</h2>
-                        <hr>
-                    </div>
 
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-lg-12">
-
-                                <div id = "display">
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-    </div>
 </div>
 </body>
 </html>

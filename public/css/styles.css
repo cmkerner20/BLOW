@@ -1,22 +1,22 @@
 .btn-front {
-    border: 1px solid #E52B50;
-    color: #E52B50;
+    border: 1px solid #00A100;
+    color: #00A100;
     background-color: transparent;
 }
 
 .btn-front:hover,
 .btn-front:focus {
-    border: 1px solid #E52B50;
+    border: 1px solid #00A100;
     outline: 0;
     color: #000;
-    background-color: #E52B50;
+    background-color: #00A100;
 }
 
 .searchGroup {
     background-color: rgba(93, 44, 53, .4);
     padding: 50px;
     margin: 50px 50px 50px 50px;
-    border: 5px solid #E52B50;
+    border: 5px solid #00A100;
 }
 
 body {
