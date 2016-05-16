@@ -37,6 +37,9 @@
 
     <!-- Our Javascript --> 
     <script src="js/scripts.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+    
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -44,7 +47,32 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+<style>
 
+    .bar {
+      fill: steelblue;
+    }
+
+    .bar:hover {
+      fill: brown;
+    }
+
+    .axis {
+      font: 10px sans-serif;
+    }
+
+    .axis path,
+    .axis line {
+      fill: none;
+      stroke: #000;
+      shape-rendering: crispEdges;
+    }
+
+    .x.axis path {
+      display: none;
+    }
+
+    </style>
 </head>
 
 <body style="padding-top: 0" id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
@@ -68,20 +96,14 @@
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
+                     <li>
+                        <a href="/home">GO</a>
+                    </li>
                     <li>
                         <a class="page-scroll" href="/#about">About</a>
                     </li>
-                    <li>
-                        <a class="page-scroll" href="/#download">Contact</a>
-                    </li>
-
-
-                     <li>
-                        <a href="/register">Register</a>
-                    </li>
-                     <li>
-                        <a href="/login">Login</a>
-                    </li>
+                    
+                    
 
                     
                 </ul>
